@@ -1,15 +1,15 @@
 
-import { Button } from '@xlion/component';
 
 
 import './App.less'
+import GlobalStyle from './pages/GlobalStyle';
+
+
 
 function App() {
 
   return (
-    <>
-      <Button type='primary'>xxxx</Button>
-    </>
+    <GlobalStyle />
   )
 }
 
