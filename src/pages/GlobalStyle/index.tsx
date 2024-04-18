@@ -2,6 +2,8 @@
 
 
 import { useState } from 'react'
+import ColorDisc from './components/ColorDisc'
+
 import './index.less'
 
 
@@ -36,34 +38,9 @@ const tabList = [
   },
 ]
 
-const warpColor = [
-  {
-    key: 'params',
-    child: [
-      {
-        key: 'default',
-        label: '--semi-color-primary'
-      },
-      {
-        key: 'activeCol',
-        label: '--semi-color-primary-active'
-      },
-      {
-        key: 'disableCol',
-        label: '--semi-color-primary-disable'
-      },
-      {
-        key: 'hoverCol',
-        label: '--semi-color-primary-hover'
-      },
-    ]
-  }
-]
-
 function GlobalStyle() {
   // 色盘
   const [currentIndex, setCurrentIndex] = useState(1);
-  const [colorChanleIndex, setColorChanleIndex] = useState(0);
 
   return (
     <div className='container'>
@@ -83,34 +60,7 @@ function GlobalStyle() {
         </div>
         <div className='right_wrapper'>
           {/* 色盘 */}
-          <div className='main'>
-            <div className='main_1'>
-              {/* list color */}
-              {
-                warpColor.map((listCol, i) => (
-                  <div className='main_1_item' key={i}>
-                    <span className='item_title'>{listCol.key}</span>
-                    <div>
-                      {
-                        listCol.child.map((childCol, iChild) => (
-                          <div className={`item_list ${colorChanleIndex === iChild && 'active'}`} key={iChild} onClick={() => setColorChanleIndex(iChild)}>
-                            <div className={`item_list_color ${childCol.key}`}></div>
-                            <div className='item_list_label'>{childCol.label}</div>
-                          </div>
-                        ))
-                      }
-                    </div>
-                  </div>
-                ))
-              }
-            </div>
-            <div className='main_2'>
-              <div className='show_color'>
-                <span>--semi-color-primary</span>
-                <input type="text" disabled value={"主要颜色"} placeholder='暂无描述' />
-              </div>
-            </div>
-          </div>
+          <ColorDisc />
         </div>
       </div>
     </div>
