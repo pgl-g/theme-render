@@ -84,9 +84,9 @@ const Typography: React.FC = () => {
 
       </div>
       <div className='typography_right'>
-        <div className='show_color'>
-          <span>{COLOR_VAL[colorChooseIndex]}</span>
-          <input type="text" disabled value={"主要颜色"} placeholder='暂无描述' />
+        <div className='show_content_item'>
+          <span>Header-2</span>
+          <input className='' type="text" disabled value={"XDesign 设计系统"} placeholder='暂无描述' />
         </div>
       </div>
     </div>

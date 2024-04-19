@@ -31,13 +31,12 @@
       }
       .fontSizeMultiple {
         width: 100%;
-        .ui-select-selector {
-          .ui-select-selection-search {
-            input {
-              line-height: 30px;
-              height: 30px;
-            }
-          }
+        &.ui-select-single:not(.ui-select-customize-input) .ui-select-selector {
+          height: 30px;
+        }
+        &.ui-select-single .ui-select-selector .ui-select-selection-item,
+        .ui-select-single .ui-select-selector .ui-select-selection-placeholder {
+          line-height: 30px;
         }
       }
 
@@ -115,7 +114,7 @@
     flex: 1 1 0%;
     padding-left: 40px;
     padding-top: 24px;
-    .show_color {
+    .show_content_item {
       margin-bottom: 32px;
 
       span {
