@@ -10,35 +10,36 @@ export enum ROUNDEDNAME {
 
 
 
+// default
 export const roundedList = [
   {
     key: ROUNDEDNAME.FULL,
-    px: '9999px',
+    px: '9999',
     name: `--semi-border-radius-${ROUNDEDNAME.FULL}`
   },
   {
     key: ROUNDEDNAME.LARGE,
-    px: '12px',
+    px: '12',
     name: `--semi-border-radius-${ROUNDEDNAME.LARGE}`
   },
   {
     key: ROUNDEDNAME.SMALL,
-    px: '3px',
+    px: '3',
     name: `--semi-border-radius-${ROUNDEDNAME.SMALL}`
   },
   {
     key: ROUNDEDNAME.CIRCLE,
-    px: '50%',
+    px: '50',
     name: `--semi-border-radius-${ROUNDEDNAME.CIRCLE}`
   },
   {
     key: ROUNDEDNAME.MEDIUM,
-    px: '6px',
+    px: '6',
     name: `--semi-border-radius-${ROUNDEDNAME.MEDIUM}`
   },
   {
     key: ROUNDEDNAME.EXTRASMALL,
-    px: '4px',
+    px: '4',
     name: `--semi-border-radius-${ROUNDEDNAME.EXTRASMALL}`
   },
 ]
