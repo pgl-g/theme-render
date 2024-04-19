@@ -16,6 +16,8 @@ const Shadow: React.FC = () => {
   // 下标
   const [shadowIndex, setshadowIndex] = useState(SHADOWNAME.shadow0)
 
+  const [shadowPx, setShadowPX] = useState();
+
   // list
   const [shadowRenderList, setshadowRenderList] = useState(shadowList);
   // X轴
@@ -31,17 +33,33 @@ const Shadow: React.FC = () => {
   const [shadowNumberDiffusion, setShadowNumberDiffusion] = useState(0)
 
 
+  // rgba( 28,31,35 , 0.08)
+
   const handleShadowIndex = (item) => {
     setshadowIndex(item.key)
-    console.log(item, "item");
+    setShadowPX(item.px);
+    if (item.px === 'none') {
+      setShadowNumberX(0)
+      setShadowNumberY(0)
+      setShadowNumberObscure(0)
+      setShadowNumberDiffusion(0)
+      return
+    }
+    const pxList = item.px.split(' ').slice();
+    setShadowNumberX(pxList[0])
+    setShadowNumberY(pxList[1])
+    setShadowNumberObscure(pxList[2])
+    setShadowNumberDiffusion(pxList[3])
   }
 
 
   useMemo(() => {
     const copyRoundedCircleList = shadowRenderList.slice();
+    console.log(shadowIndex, 'ss')
+
     const resultList = copyRoundedCircleList.map(item => {
       if (item.key === shadowIndex) {
-        item.px = `${shadowNumberX}px, ${shadowNumberY}px, ${shadowNumberObscure}px, ${shadowNumberDiffusion}px`;
+        item.px = `${shadowNumberX} ${shadowNumberY} ${shadowNumberObscure} ${shadowNumberDiffusion} rgba( 28,31,35 , 0.08)`;
       }
       return item
     })
@@ -85,7 +103,7 @@ const Shadow: React.FC = () => {
         <div className='show_content_item'>
           <span className='label'>shadow-{shadowIndex}</span>
           <div className='borderBig'>
-            <div className='borderRec' style={{ boxShadow: shadowRenderList.find(item => item.key === shadowIndex)?.px }}></div>
+            <div className='borderRec' style={{ boxShadow: `${shadowRenderList.find(item => item.key === shadowIndex)?.px}` }}></div>
           </div>
         </div>
 

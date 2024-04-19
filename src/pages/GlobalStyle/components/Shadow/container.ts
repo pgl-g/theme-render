@@ -22,17 +22,17 @@ export const shadowList = [
   },
   {
     key: SHADOWNAME.shadow2,
-    px: '0px 2px 4px 0px rgba(0,0,0,0.14), 0px 0px 1px 0px rgba(0,0,0,0.16)',
+    px: '0px 2px 4px 0px rgba( 28,31,35 , 0.08)',
     name: `shadow-${SHADOWNAME.shadow2}`
   },
   {
     key: SHADOWNAME.shadowKnob,
-    px: '0px 4px 6px 0px rgba(0,0,0,0.10), 0px 0px 1px 0px rgba(0,0,0,0.30)',
+    px: '0px 4px 6px 0px rgba( 28,31,35 , 0.08)',
     name: `shadow-${SHADOWNAME.shadowKnob}`
   },
   {
     key: SHADOWNAME.shadowElevated,
-    px: '0px 0px 1px 0px rgba(0,0,0,0.30), 0px 4px 14px 0px rgba(0,0,0,0.10)',
+    px: '0px 0px 1px 0px rgba( 28,31,35 , 0.08)',
     name: `shadow-${SHADOWNAME.shadowElevated}`
   },
 ]
