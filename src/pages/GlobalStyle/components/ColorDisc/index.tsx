@@ -4,7 +4,9 @@
 import React, { useState } from 'react';
 
 
-import { colorDiscList, COLOR_KEY, COLOR_VAL } from './container';
+import { colorDiscList, COLOR_KEY, COLOR_VAL, COLOR_NAME } from './container';
+
+import ColorPicker from '@xc/color-picker';
 
 import './index.less'
 
@@ -12,7 +14,12 @@ import './index.less'
 
 
 const ColorDisc: React.FC = () => {
+  // 选中下标
   const [colorChooseIndex, setColoChooseIndex] = useState(COLOR_KEY.PARAMS);
+
+  const [visible, setVisible] = useState<boolean>(false)
+
+
 
   return (
     <div className='colorDisc'>
@@ -41,8 +48,19 @@ const ColorDisc: React.FC = () => {
       </div>
       <div className='colorDisc_right'>
         <div className='show_color'>
-          <span>{COLOR_VAL[colorChooseIndex]}</span>
-          <input type="text" disabled value={"主要颜色"} placeholder='暂无描述' />
+          <span className='label'>{COLOR_VAL[colorChooseIndex]}</span>
+          <input className='input' type="text" disabled value={COLOR_NAME[colorChooseIndex]} placeholder='暂无描述' />
+        </div>
+
+        <div className='show_color'>
+          <span className='label'>基础色阶引用关系</span>
+          <div className='colorPickerBox' onClick={() => setVisible(!visible)}>
+            <div className={`item_list_color`}></div>
+            <div className='item_list_label'>30,56,69</div>
+          </div>
+          {
+            visible && <ColorPicker />
+          }
         </div>
       </div>
     </div>

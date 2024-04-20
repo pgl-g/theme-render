@@ -6,6 +6,7 @@
     overflow: auto;
     width: 440px;
     height: calc(-104px + 100vh);
+    margin-top: 32px;
 
     .main_1_item {
       .item_title {
@@ -67,10 +68,11 @@
     flex: 1 1 0%;
     padding-left: 40px;
     padding-top: 24px;
+    margin-top: 32px;
     .show_color {
       margin-bottom: 32px;
 
-      span {
+      .label {
         color: rgba(73, 31, 35, 0.62);
         font-size: 14px;
         line-height: 20px;
@@ -79,7 +81,7 @@
         margin-bottom: 8px;
       }
 
-      input {
+      .input {
         width: 100%;
         cursor: not-allowed;
         color: inherit;
@@ -92,6 +94,28 @@
         padding: 0 12px;
         background-color: rgba(46, 50, 56, 0.04);
         box-sizing: border-box;
+      }
+
+      .colorPickerBox {
+        width: 120px;
+        height: 38px;
+        padding: 4px 16px 4px 8px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        background-color: rgba(46, 50, 56, 0.04);
+        cursor: pointer;
+
+        .item_list_color {
+          width: 24px;
+          height: 24px;
+          border-radius: 100px;
+          cursor: pointer;
+          box-shadow: 0 4px 14px #0000001a;
+          background-color: #0277f9;
+          margin-right: 8px;
+        }
       }
     }
   }

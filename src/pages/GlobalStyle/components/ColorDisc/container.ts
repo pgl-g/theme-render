@@ -12,6 +12,13 @@ export enum COLOR_VAL {
   HOVER = '--semi-color-hover',
 }
 
+export enum COLOR_NAME {
+  PARAMS = '主要颜色',
+  ACTIVE = '主要颜色激活态',
+  DISABLE = '主要颜色禁用态',
+  HOVER = '主要颜色悬浮态',
+}
+
 
 export const colorDiscList = [
   {
@@ -19,19 +26,23 @@ export const colorDiscList = [
     child: [
       {
         key: COLOR_KEY.PARAMS,
-        value: COLOR_VAL.PARAMS
+        value: COLOR_VAL.PARAMS,
+        name: COLOR_NAME.PARAMS
       },
       {
         key: COLOR_KEY.ACTIVE,
-        value: COLOR_VAL.ACTIVE
+        value: COLOR_VAL.ACTIVE,
+        name: COLOR_NAME.ACTIVE
       },
       {
         key: COLOR_KEY.DISABLE,
-        value: COLOR_VAL.DISABLE
+        value: COLOR_VAL.DISABLE,
+        name: COLOR_NAME.DISABLE
       },
       {
         key: COLOR_KEY.HOVER,
-        value: COLOR_VAL.HOVER
+        value: COLOR_VAL.HOVER,
+        name: COLOR_NAME.HOVER
       },
     ]
   }
