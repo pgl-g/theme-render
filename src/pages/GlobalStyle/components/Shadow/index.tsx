@@ -10,8 +10,6 @@ import './index.less'
 
 
 
-
-
 const Shadow: React.FC = () => {
   // 下标
   const [shadowIndex, setshadowIndex] = useState(SHADOWNAME.shadow0)
@@ -33,7 +31,7 @@ const Shadow: React.FC = () => {
   const [shadowNumberDiffusion, setShadowNumberDiffusion] = useState(0)
 
 
-  // rgba( 28,31,35 , 0.08)
+  // rgba( 28,31,35 , 0.08) 暂时默认使用当前颜色
 
   const handleShadowIndex = (item) => {
     setshadowIndex(item.key)
@@ -55,11 +53,10 @@ const Shadow: React.FC = () => {
 
   useMemo(() => {
     const copyRoundedCircleList = shadowRenderList.slice();
-    console.log(shadowIndex, 'ss')
 
     const resultList = copyRoundedCircleList.map(item => {
       if (item.key === shadowIndex) {
-        item.px = `${shadowNumberX} ${shadowNumberY} ${shadowNumberObscure} ${shadowNumberDiffusion} rgba( 28,31,35 , 0.08)`;
+        item.px = shadowPx === 'none' ? 'none' : `${shadowNumberX} ${shadowNumberY} ${shadowNumberObscure} ${shadowNumberDiffusion} rgba( 28,31,35 , 0.08)`;
       }
       return item
     })
