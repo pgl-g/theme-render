@@ -3,50 +3,66 @@
  */
 
 import React, { useState } from 'react';
-
 import { InputNumber, Select } from '@xlion/component';
-import { COLOR_KEY, COLOR_VAL } from '../ColorDisc/container';
-import { headerList, PX, paragraphList, fontSizeMultipleOptions } from './container';
-
+import { headerList, HEADER_TITLE, paragraphList, fontSizeMultipleOptions } from './container';
 import './index.less'
 
 
-
-
 const Typography: React.FC = () => {
-  const [colorChooseIndex, setColoChooseIndex] = useState(COLOR_KEY.PARAMS);
   // 基准字号
-  const [baseFontSize, setBaseFontSize] = useState(12);
+  // const [baseFontSize, setBaseFontSize] = useState(12);
   // 行高倍数
-  const [lineHeightMultiple, setLineHeightMultiple] = useState(1.4);
+  // const [lineHeightMultiple, setLineHeightMultiple] = useState(1.4);
   // 字号倍数
-  const [fontSizeMultiple, setFontSizeMultiple] = useState('1');
+  // const [fontSizeMultiple, setFontSizeMultiple] = useState('1');
   // 标题
-  const [typographyIndex, setTypographyIndex] = useState(PX.TEXT_32);
-  // 段落
-  const [paragraphIndex, setParagraphIndex] = useState();
+  const [typographyIndex, setTypographyIndex] = useState(HEADER_TITLE.HEADER_1);
+  // 标题字号
+  const [typographyIndexPx, setTypographyIndexPx] = useState(32);
+  // 标题行高
+  const [typographyLineHeight, setTypographyLineHeight] = useState(44);
+
+
+
+
+  // handle标题/段落
+  const handleTitle = (r) => {
+    setTypographyIndex(r.name);
+    setTypographyIndexPx(r.px);
+    setTypographyLineHeight(r.lineHeight)
+  }
+
+  // handle size
+  const handleFontSize = (val) => {
+    setTypographyIndexPx(val);
+  }
+
+  const handleLineHeight = (val) => {
+    setTypographyLineHeight(val);
+  }
+
 
   return (
     <div className='typography'>
       <div className='typography_center'>
 
         {/* 基准字号 */}
-        <div className='center_warper_item'>
+        {/* <div className='center_warper_item'>
           <span className='item_title'>基准字号</span>
           <InputNumber min={0} className='baseInputNumber' value={baseFontSize} addonAfter="px" onChange={(val) => setBaseFontSize(val)} />
-        </div>
+        </div> */}
 
         {/* 行高倍数 */}
-        <div className='center_warper_item'>
+        {/* <div className='center_warper_item'>
           <span className='item_title'>行高倍数</span>
           <InputNumber min={0} step={0.1} className='baseInputNumber' value={lineHeightMultiple} addonAfter="px" onChange={(val) => setLineHeightMultiple(val)} />
-        </div>
+        </div> */}
 
         {/* 字号倍数 */}
-        <div className='center_warper_item'>
+        {/* <div className='center_warper_item'>
           <span className='item_title'>字号倍数</span>
           <Select className='fontSizeMultiple' options={fontSizeMultipleOptions} value={fontSizeMultiple} onChange={(val) => setFontSizeMultiple(val)} />
-        </div>
+        </div> */}
 
 
         {/* 标题 */}
@@ -55,10 +71,14 @@ const Typography: React.FC = () => {
           <div>
             {
               headerList.map(item => (
-                <div key={item.px} className={`item_list ${typographyIndex === item.px && 'active'}`} onClick={() => setTypographyIndex(item.px)}>
+                <div
+                  key={item.name}
+                  className={`item_list ${typographyIndex === item.name && 'active'}`}
+                  onClick={() => handleTitle(item)}
+                >
                   <div className='text'>A</div>
                   <div className={`flex_1 f_${item.px}`}>{item.name}</div>
-                  <div className='px'>{item.px}</div>
+                  <div className='px'>{item.px}px</div>
                 </div>
               ))
             }
@@ -71,10 +91,14 @@ const Typography: React.FC = () => {
           <div>
             {
               paragraphList.map(item => (
-                <div key={item.size} className={`item_list ${paragraphIndex === item.size && 'active'}`} onClick={() => setParagraphIndex(item.size)}>
+                <div
+                  key={item.name}
+                  className={`item_list ${typographyIndex === item.name && 'active'}`}
+                  onClick={() => handleTitle(item)}
+                >
                   <div className='text'>A</div>
-                  <div className={`flex_1 f_${item.size}`}>{item.name}</div>
-                  <div className='px'>{item.size}</div>
+                  <div className={`flex_1 f_${item.px}`}>{item.name}</div>
+                  <div className='px'>{item.px}px</div>
                 </div>
               ))
             }
@@ -85,8 +109,19 @@ const Typography: React.FC = () => {
       </div>
       <div className='typography_right'>
         <div className='show_content_item'>
-          <span>Header-2</span>
-          <input className='' type="text" disabled value={"XDesign 设计系统"} placeholder='暂无描述' />
+          <span className='label'>{typographyIndex}</span>
+          <div className='showBigClient' style={{ fontSize: `${typographyIndexPx}px`, lineHeight: `${typographyLineHeight}px` }}>XDesign</div>
+        </div>
+
+
+        <div className='show_content_item'>
+          <span className='label'>字号</span>
+          <InputNumber min={12} className='fontNumber' value={typographyIndexPx} addonAfter="px" onChange={handleFontSize} />
+        </div>
+
+        <div className='show_content_item'>
+          <span className='label'>行高</span>
+          <InputNumber min={0} className='fontNumber' value={typographyLineHeight} addonAfter="px" onChange={handleLineHeight} />
         </div>
       </div>
     </div>

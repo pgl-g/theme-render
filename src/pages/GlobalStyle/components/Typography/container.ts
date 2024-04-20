@@ -1,57 +1,61 @@
 
-export enum PX {
-  TEXT_32 = '32px',
-  TEXT_28 = '28px',
-  TEXT_24 = '24px',
-  TEXT_20 = '20px',
-  TEXT_18 = '18px',
-  TEXT_16 = '16px',
+export enum HEADER_TITLE {
+  HEADER_1 = 'Header-1',
+  HEADER_2 = 'Header-2',
+  HEADER_3 = 'Header-3',
+  HEADER_4 = 'Header-4',
+  HEADER_5 = 'Header-5',
+  HEADER_6 = 'Header-6',
+  HEADER_7 = 'small',
+  HEADER_8 = 'regular'
 }
 
 
 // 标题
 export const headerList = [
   {
-    name: 'Header-1',
-    px: PX.TEXT_32
+    name: HEADER_TITLE.HEADER_1,
+    px: '32',
+    lineHeight: '44'
   },
   {
-    name: 'Header-2',
-    px: PX.TEXT_28
+    name: HEADER_TITLE.HEADER_2,
+    px: '28',
+    lineHeight: '40'
   },
   {
-    name: 'Header-3',
-    px: PX.TEXT_24
+    name: HEADER_TITLE.HEADER_3,
+    px: '24',
+    lineHeight: '32'
   },
   {
-    name: 'Header-4',
-    px: PX.TEXT_20
+    name: HEADER_TITLE.HEADER_4,
+    px: '20',
+    lineHeight: '28'
   },
   {
-    name: 'Header-5',
-    px: PX.TEXT_18
+    name: HEADER_TITLE.HEADER_5,
+    px: '18',
+    lineHeight: '24'
   },
   {
-    name: 'Header-6',
-    px: PX.TEXT_16
+    name: HEADER_TITLE.HEADER_6,
+    px: '16',
+    lineHeight: '22'
   },
 ]
 
-
-
-export enum paragraphSize {
-  SIZE_12 = '12px',
-  SIZE_14 = '14px',
-}
 // 段落
 export const paragraphList = [
   {
-    name: 'small',
-    size: paragraphSize.SIZE_12
+    name: HEADER_TITLE.HEADER_7,
+    px: '12',
+    lineHeight: '16'
   },
   {
-    name: 'small',
-    size: paragraphSize.SIZE_14
+    name: HEADER_TITLE.HEADER_8,
+    px: '14',
+    lineHeight: '20'
   }
 ]
 
