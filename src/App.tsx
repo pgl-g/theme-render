@@ -20,7 +20,7 @@ function App() {
     <Tabs
       defaultActiveKey="1"
       onChange={onChange}
-      style={{ marginLeft: 44 }}
+      className='tabContainer'
       items={[
         {
           label: `全局样式定制`,
