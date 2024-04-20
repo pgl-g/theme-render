@@ -17,15 +17,49 @@ const ColorDisc: React.FC = () => {
   // 选中下标
   const [colorChooseIndex, setColoChooseIndex] = useState(COLOR_KEY.PARAMS);
 
+
+  // list
+  const [colorDiscStateList, setColorDiscStateList] = useState(colorDiscList);
+
   const [visible, setVisible] = useState<boolean>(false)
 
+  // Rgb
+  const [rgbColorStr, setRgbColorStr] = useState('');
+
+
+
+
+  const handleActive = (childCol) => {
+    setColoChooseIndex(childCol.key)
+    setRgbColorStr(childCol.hexColor);
+  }
+
+
+  // 处理取色器
+  const handleColorPicker = (color) => {
+    const { r, g, b, a } = color.toRgb();
+    const rgbStr = `${r}, ${g}, ${b}, ${a}`;
+    const copyColorDiscList = colorDiscList.slice();
+    copyColorDiscList.forEach(item => {
+      item.child.map(it => {
+        if (it.key === colorChooseIndex) {
+          it.hexColor = rgbColorStr;
+        }
+        return it
+      })
+    })
+
+    setColorDiscStateList(copyColorDiscList)
+
+    setRgbColorStr(rgbStr);
+  }
 
 
   return (
     <div className='colorDisc'>
       <div className='colorDisc_center'>
         {
-          colorDiscList.map((listCol, i) => (
+          colorDiscStateList.map((listCol, i) => (
             <div className='main_1_item' key={i}>
               <span className='item_title'>{listCol.key}</span>
               <div>
@@ -34,9 +68,9 @@ const ColorDisc: React.FC = () => {
                     <div
                       className={`item_list ${colorChooseIndex === childCol.key && 'active'}`}
                       key={iChild}
-                      onClick={() => setColoChooseIndex(childCol.key)}
+                      onClick={() => handleActive(childCol)}
                     >
-                      <div className={`item_list_color ${childCol.key}`}></div>
+                      <div className="item_list_color" style={{ backgroundColor: `rgba(${childCol.hexColor})` }}></div>
                       <div className='item_list_label'>{childCol.value}</div>
                     </div>
                   ))
@@ -55,11 +89,11 @@ const ColorDisc: React.FC = () => {
         <div className='show_color'>
           <span className='label'>基础色阶引用关系</span>
           <div className='colorPickerBox' onClick={() => setVisible(!visible)}>
-            <div className={`item_list_color`}></div>
-            <div className='item_list_label'>30,56,69</div>
+            <div className="item_list_color" style={{ backgroundColor: `rgba(${rgbColorStr})` }}></div>
+            <div className='item_list_label'>{rgbColorStr}</div>
           </div>
           {
-            visible && <ColorPicker />
+            visible && <ColorPicker onChange={handleColorPicker} />
           }
         </div>
       </div>

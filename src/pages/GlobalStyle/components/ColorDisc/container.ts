@@ -27,22 +27,26 @@ export const colorDiscList = [
       {
         key: COLOR_KEY.PARAMS,
         value: COLOR_VAL.PARAMS,
-        name: COLOR_NAME.PARAMS
+        name: COLOR_NAME.PARAMS,
+        hexColor: '0, 149, 238, 1'
       },
       {
         key: COLOR_KEY.ACTIVE,
         value: COLOR_VAL.ACTIVE,
-        name: COLOR_NAME.ACTIVE
+        name: COLOR_NAME.ACTIVE,
+        hexColor: '0, 99, 167, 1'
       },
       {
         key: COLOR_KEY.DISABLE,
         value: COLOR_VAL.DISABLE,
-        name: COLOR_NAME.DISABLE
+        name: COLOR_NAME.DISABLE,
+        hexColor: '149, 216, 248, 1'
       },
       {
         key: COLOR_KEY.HOVER,
         value: COLOR_VAL.HOVER,
-        name: COLOR_NAME.HOVER
+        name: COLOR_NAME.HOVER,
+        hexColor: '0, 123, 202, 1'
       },
     ]
   }
